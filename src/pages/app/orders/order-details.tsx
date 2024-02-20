@@ -3,14 +3,12 @@ import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
 import { getOrderDetails } from '@/api/get-order-details'
-import { OrderStatus } from '@/pages/app/orders/order-status'
-
 import {
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from './ui/dialog'
+} from '@/components/ui/dialog'
 import {
   Table,
   TableBody,
@@ -19,9 +17,12 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from './ui/table'
+} from '@/components/ui/table'
 
-interface OrderDetailsProps {
+import { OrderDetailsSkeleton } from './order-details-skeleton'
+import { OrderStatus } from './order-status'
+
+export interface OrderDetailsProps {
   orderId: string
   open: boolean
 }
@@ -40,7 +41,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
         <DialogDescription>Detalhes do pedido</DialogDescription>
       </DialogHeader>
 
-      {order && (
+      {order ? (
         <div className="space-y-6">
           <Table>
             <TableBody>
@@ -50,14 +51,12 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                   <OrderStatus status={order.status} />
                 </TableCell>
               </TableRow>
-
               <TableRow>
                 <TableCell className="text-muted-foreground">Cliente</TableCell>
                 <TableCell className="flex justify-end">
                   {order.customer.name}
                 </TableCell>
               </TableRow>
-
               <TableRow>
                 <TableCell className="text-muted-foreground">
                   Telefone
@@ -66,14 +65,12 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                   {order.customer.phone ?? 'Não informado'}
                 </TableCell>
               </TableRow>
-
               <TableRow>
                 <TableCell className="text-muted-foreground">E-mail</TableCell>
                 <TableCell className="flex justify-end">
                   {order.customer.email}
                 </TableCell>
               </TableRow>
-
               <TableRow>
                 <TableCell className="text-muted-foreground">
                   Realizado há
@@ -98,33 +95,28 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {order.orderItems.map((item) => {
-                return (
-                  <TableRow key={item.id}>
-                    <TableCell>{item.product.name}</TableCell>
-                    <TableCell className="text-right">
-                      {item.quantity}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {(item.priceInCents / 100).toLocaleString('pt-BR', {
+              {order.orderItems.map((item) => (
+                <TableRow key={item.id}>
+                  <TableCell>{item.product.name}</TableCell>
+                  <TableCell className="text-right">{item.quantity}</TableCell>
+                  <TableCell className="text-right">
+                    {(item.priceInCents / 100).toLocaleString('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    })}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    {((item.priceInCents * item.quantity) / 100).toLocaleString(
+                      'pt-BR',
+                      {
                         style: 'currency',
                         currency: 'BRL',
-                      })}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {(
-                        (item.priceInCents * item.quantity) /
-                        100
-                      ).toLocaleString('pt-BR', {
-                        style: 'currency',
-                        currency: 'BRL',
-                      })}
-                    </TableCell>
-                  </TableRow>
-                )
-              })}
+                      },
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
-
             <TableFooter>
               <TableRow>
                 <TableCell colSpan={3}>Total do pedido</TableCell>
@@ -138,6 +130,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
             </TableFooter>
           </Table>
         </div>
+      ) : (
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
   )
