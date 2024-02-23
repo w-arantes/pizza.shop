@@ -58,7 +58,7 @@ describe('Pagination', () => {
     )
 
     const previousPageButton = wrapper.getByRole('button', {
-      name: 'Página anterior',
+      name: 'Página Anterior',
     })
 
     await user.click(previousPageButton)
