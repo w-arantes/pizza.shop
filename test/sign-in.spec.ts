@@ -5,7 +5,9 @@ test('sign in successfully', async ({ page }) => {
   await page.getByLabel('Your email').fill('johndoe@example.com')
   await page.getByRole('button', { name: 'Access' }).click()
 
-  const toast = page.getByText('We have sent an authentication link to your email.')
+  const toast = page.getByText(
+    'We have sent an authentication link to your email.',
+  )
 
   expect(toast).toBeVisible()
 })
@@ -23,6 +25,6 @@ test('sign in with wrong credentials', async ({ page }) => {
 test('navigate to new restaurant page', async ({ page }) => {
   await page.goto('/sign-in', { waitUntil: 'networkidle' })
   await page.getByRole('link', { name: 'New establishment' }).click()
-  
+
   expect(page.url()).toContain('/sign-up')
 })

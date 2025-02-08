@@ -54,7 +54,7 @@ export function SignIn() {
 
   return (
     <>
-      <Helmet title="Login" />
+      <Helmet title="Sign In" />
 
       <div className="p-8">
         <Button asChild variant="ghost" className="absolute right-8 top-8">
@@ -67,7 +67,7 @@ export function SignIn() {
               Admin panel
             </h1>
             <p className="text-sm text-muted-foreground">
-            Track your sales through the partner dashboard!
+              Track your sales through the partner dashboard!
             </p>
           </div>
           <form className="space-y-4" onSubmit={handleSubmit(handleSignIn)}>
