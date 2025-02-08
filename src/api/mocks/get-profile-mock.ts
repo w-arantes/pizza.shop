@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw'
 
-import { GetProfileResponse } from '../get-profile'
+import { GetProfileResponse } from '@/api/get-profile'
 
 export const getProfileMock = http.get<never, never, GetProfileResponse>(
   '/me',

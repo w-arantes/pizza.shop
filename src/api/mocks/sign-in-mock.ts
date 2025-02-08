@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw'
 
-import { SignInBody } from '../sign-in'
+import { SignInBody } from '@/api/sign-in'
 
 export const signInMock = http.post<never, SignInBody>(
   '/authenticate',
