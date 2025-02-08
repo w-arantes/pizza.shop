@@ -17,7 +17,7 @@ test('sign up successfully', async ({ page }) => {
 
   const toast = page.getByText('Restaurant registered successfully!')
 
-  expect(toast).toBeVisible()
+  await expect(toast).toBeVisible()
 })
 
 test('sign up with error', async ({ page }) => {
@@ -30,5 +30,5 @@ test('sign up with error', async ({ page }) => {
 
   const toast = page.getByText('Error registering restaurant.')
 
-  expect(toast).toBeVisible()
+  await expect(toast).toBeVisible()
 })
