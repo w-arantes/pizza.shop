@@ -1,39 +1,56 @@
-# Pizza Shop
+<div align="center">
+   <img src="./docs/header.png" href="pizza.shop logo">
+</div>
+
 ## Overview
 
-Pizza Shop Dashboard is a comprehensive management tool for handling pizza orders, viewing statistics, and managing other aspects of a pizza shop.
-
-## Features
-
-- **Order Management**: Easily manage and track pizza orders.
-- **Statistics**: View detailed statistics about sales, customers, and more.
-- **User-Friendly Interface**: Built with modern UI components for a seamless experience.
+Welcome to the pizza.shop partner panel. This application allows partners to manage their orders and profile with ease.
 
 ## Technologies Used
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![Radix UI](https://img.shields.io/badge/Radix_UI-000000?style=for-the-badge&logo=radix-ui&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![React Query](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white)
-![Zod](https://img.shields.io/badge/Zod-3B82F6?style=for-the-badge&logo=zod&logoColor=white)
 
-- **Next.js** : A React framework for server-side rendering and static site generation.
-- **Radix UI** : A set of accessible and customizable UI components.
-- **Tailwind CSS** : A utility-first CSS framework for styling.
-- **ShadCN**: A design system for building consistent and accessible UI components.
-- **React Query** : For data fetching and state management.
-- **Zod** : A TypeScript-first schema declaration and validation library.
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- React Query
+- Axios
+- Radix UI
+- Zod
+- Playwright (for e2e testing)
 
-## Getting Started
+## Screenshots
 
-To get started with the project, follow these steps:
+### Dashboard
+![Dashboard](./docs/dashboard.png)
 
-1. Install dependencies:
-   ```bash
-   cd pizza-shop-dashboard
-   pnpm install
-   ```
-2. Run the development server:
-   ```bash
-   pnpm run dev
-   ```
+Light Version
+![Dashboard Light Version](./docs/light-dashboard.png)
 
+### Orders Page
+![Orders Page](./docs/orders.png)
+
+### Order Details
+![Orders Page](./docs/order-details.png)
+
+### Sign in Page
+![SignIn Page](./docs/sign-in.png)
+
+### Sign up Page
+![SignUp Page](./docs/sign-up.png)
+
+## End-to-End Testing
+
+We use Playwright for end-to-end (e2e) testing to ensure the quality and reliability of our application. Playwright allows us to automate browser interactions and verify that our application behaves as expected.
+
+### Running e2e Tests
+
+To run the e2e tests, use the following command:
+
+```bash
+pnpm run test:e2e
+```
+
+This will start the Playwright test UI and execute all the e2e tests defined in the project.
+
+### E2E
+![E2E](./docs/playwright-tests-e2e.png)
