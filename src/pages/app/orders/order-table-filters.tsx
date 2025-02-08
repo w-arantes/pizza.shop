@@ -87,15 +87,15 @@ export function OrderTableFilters() {
       className="flex items-center gap-2"
       onSubmit={handleSubmit(handleFilter)}
     >
-      <span className="text-sm font-semibold">Filtros</span>
+      <span className="text-sm font-semibold">Filters</span>
       <Input
-        placeholder="ID do pedido"
+        placeholder="Order ID"
         className="h-8 w-auto"
         {...register('orderId')}
       />
 
       <Input
-        placeholder="Nome do cliente"
+        placeholder="Customer name"
         className="h-8 w-[320px]"
         {...register('customerName')}
       />
@@ -116,12 +116,12 @@ export function OrderTableFilters() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Todos os status</SelectItem>
-                <SelectItem value="pending">Pendente</SelectItem>
-                <SelectItem value="canceled">Cancelado</SelectItem>
-                <SelectItem value="processing">Em preparo</SelectItem>
-                <SelectItem value="delivering">Em entrega</SelectItem>
-                <SelectItem value="delivered">Entregue</SelectItem>
+                <SelectItem value="all">All statuses</SelectItem>
+                <SelectItem value="pending">Pending</SelectItem>
+                <SelectItem value="canceled">Canceled</SelectItem>
+                <SelectItem value="processing">In preparation</SelectItem>
+                <SelectItem value="delivering">In delivery</SelectItem>
+                <SelectItem value="delivered">Delivered</SelectItem>
               </SelectContent>
             </Select>
           )
@@ -130,7 +130,7 @@ export function OrderTableFilters() {
 
       <Button type="submit" variant="secondary" size="xs">
         <Search className="mr-2 h-4 w-4" />
-        Filtrar resultados
+        Filter results
       </Button>
 
       <Button
@@ -140,7 +140,7 @@ export function OrderTableFilters() {
         onClick={handleClearFilters}
       >
         <X className="mr-2 h-4 w-4" />
-        Remover filtros
+        Remove filters
       </Button>
     </form>
   )

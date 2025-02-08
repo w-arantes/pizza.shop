@@ -21,13 +21,13 @@ export function OrderDetailsSkeleton() {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-muted-foreground">Cliente</TableCell>
+            <TableCell className="text-muted-foreground">Customer</TableCell>
             <TableCell className="flex justify-end">
               <Skeleton className="h-5 w-[164px]" />
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-muted-foreground">Telefone</TableCell>
+            <TableCell className="text-muted-foreground">Phone</TableCell>
             <TableCell className="flex justify-end">
               <Skeleton className="h-5 w-[140px]" />
             </TableCell>
@@ -40,7 +40,7 @@ export function OrderDetailsSkeleton() {
           </TableRow>
           <TableRow>
             <TableCell className="text-muted-foreground">
-              Realizado há
+              Time Since Preparation
             </TableCell>
             <TableCell className="flex justify-end">
               <Skeleton className="h-5 w-[148px]" />
@@ -80,7 +80,7 @@ export function OrderDetailsSkeleton() {
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell colSpan={3}>Total do pedido</TableCell>
+            <TableCell colSpan={3}>Order Total</TableCell>
             <TableCell className="text-right font-medium">
               <Skeleton className="h-5 w-20" />
             </TableCell>

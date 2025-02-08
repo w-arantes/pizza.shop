@@ -20,8 +20,8 @@ describe('Pagination', () => {
       />,
     )
 
-    expect(wrapper.getByText('Página 1 de 20')).toBeInTheDocument()
-    expect(wrapper.getByText('Total de 200 item(s)')).toBeInTheDocument()
+    expect(wrapper.getByText('Page 1 of 20')).toBeInTheDocument()
+    expect(wrapper.getByText('Total of 200 item(s)')).toBeInTheDocument()
   })
 
   it('should be able to navigate to the next page', async () => {
@@ -37,7 +37,7 @@ describe('Pagination', () => {
     )
 
     const nextPageButton = wrapper.getByRole('button', {
-      name: 'Próxima página',
+      name: 'Next page',
     })
 
     await user.click(nextPageButton)
@@ -58,7 +58,7 @@ describe('Pagination', () => {
     )
 
     const previousPageButton = wrapper.getByRole('button', {
-      name: 'Página Anterior',
+      name: 'Previous page',
     })
 
     await user.click(previousPageButton)
@@ -79,7 +79,7 @@ describe('Pagination', () => {
     )
 
     const firstPageButton = wrapper.getByRole('button', {
-      name: 'Primeira página',
+      name: 'First page',
     })
 
     await user.click(firstPageButton)
@@ -100,7 +100,7 @@ describe('Pagination', () => {
     )
 
     const lastPageButton = wrapper.getByRole('button', {
-      name: 'Última página',
+      name: 'Last page',
     })
 
     await user.click(lastPageButton)

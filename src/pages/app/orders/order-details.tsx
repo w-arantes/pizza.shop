@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { formatDistanceToNow } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import { enUS } from 'date-fns/locale'
 
 import { getOrderDetails } from '@/api/get-order-details'
 import {
@@ -37,8 +37,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
   return (
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Pedido: {orderId}</DialogTitle>
-        <DialogDescription>Detalhes do pedido</DialogDescription>
+        <DialogTitle>Order: {orderId}</DialogTitle>
+        <DialogDescription>Order details</DialogDescription>
       </DialogHeader>
 
       {order ? (
@@ -52,15 +52,15 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="text-muted-foreground">Cliente</TableCell>
+                <TableCell className="text-muted-foreground">
+                  Customer
+                </TableCell>
                 <TableCell className="flex justify-end">
                   {order.customer.name}
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="text-muted-foreground">
-                  Telefone
-                </TableCell>
+                <TableCell className="text-muted-foreground">Phone</TableCell>
                 <TableCell className="flex justify-end">
                   {order.customer.phone ?? 'Não informado'}
                 </TableCell>
@@ -73,11 +73,11 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
               </TableRow>
               <TableRow>
                 <TableCell className="text-muted-foreground">
-                  Realizado há
+                  Completed
                 </TableCell>
                 <TableCell className="flex justify-end">
                   {formatDistanceToNow(order.createdAt, {
-                    locale: ptBR,
+                    locale: enUS,
                     addSuffix: true,
                   })}
                 </TableCell>
@@ -88,9 +88,9 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Produto</TableHead>
-                <TableHead className="text-right">Qtd.</TableHead>
-                <TableHead className="text-right">Preço</TableHead>
+                <TableHead>Product</TableHead>
+                <TableHead className="text-right">Amount</TableHead>
+                <TableHead className="text-right">Price</TableHead>
                 <TableHead className="text-right">Subtotal</TableHead>
               </TableRow>
             </TableHeader>
@@ -102,7 +102,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                   <TableCell className="text-right">
                     {(item.priceInCents / 100).toLocaleString('pt-BR', {
                       style: 'currency',
-                      currency: 'BRL',
+                      currency: 'USD',
                     })}
                   </TableCell>
                   <TableCell className="text-right">
@@ -110,7 +110,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                       'pt-BR',
                       {
                         style: 'currency',
-                        currency: 'BRL',
+                        currency: 'USD',
                       },
                     )}
                   </TableCell>
@@ -119,11 +119,11 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
             </TableBody>
             <TableFooter>
               <TableRow>
-                <TableCell colSpan={3}>Total do pedido</TableCell>
+                <TableCell colSpan={3}>Order total</TableCell>
                 <TableCell className="text-right font-medium">
                   {(order.totalInCents / 100).toLocaleString('pt-BR', {
                     style: 'currency',
-                    currency: 'BRL',
+                    currency: 'USD',
                   })}
                 </TableCell>
               </TableRow>

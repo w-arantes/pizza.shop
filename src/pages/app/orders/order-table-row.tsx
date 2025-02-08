@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { formatDistanceToNow } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import { enUS } from 'date-fns/locale'
 import { ArrowRight, Search, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -92,7 +92,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
           <DialogTrigger asChild>
             <Button variant="outline" size="xs">
               <Search className="h-3 w-3" />
-              <span className="sr-only">Detalhes do pedido</span>
+              <span className="sr-only">Order details</span>
             </Button>
           </DialogTrigger>
 
@@ -104,7 +104,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
       </TableCell>
       <TableCell className="text-muted-foreground ">
         {formatDistanceToNow(order.createdAt, {
-          locale: ptBR,
+          locale: enUS,
           addSuffix: true,
         })}
       </TableCell>
@@ -115,7 +115,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
       <TableCell className="font-medium">
         {(order.total / 100).toLocaleString('pt-br', {
           style: 'currency',
-          currency: 'BRL',
+          currency: 'USD',
         })}
       </TableCell>
       <TableCell>
@@ -127,7 +127,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             onClick={() => approveOrderFn({ orderId: order.orderId })}
           >
             <ArrowRight className="mr-2 h-3 w-3" />
-            Aprovar
+            Approve
           </Button>
         )}
 
@@ -139,7 +139,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             onClick={() => dispatchOrderFn({ orderId: order.orderId })}
           >
             <ArrowRight className="mr-2 h-3 w-3" />
-            Em entrega
+            In delivery
           </Button>
         )}
 
@@ -151,7 +151,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             onClick={() => deliverOrderFn({ orderId: order.orderId })}
           >
             <ArrowRight className="mr-2 h-3 w-3" />
-            Entregue
+            Delivered
           </Button>
         )}
       </TableCell>
@@ -166,7 +166,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
           onClick={() => cancelOrderFn({ orderId: order.orderId })}
         >
           <X className="mr-2 h-3 w-3" />
-          Cancelar
+          Cancel
         </Button>
       </TableCell>
     </TableRow>

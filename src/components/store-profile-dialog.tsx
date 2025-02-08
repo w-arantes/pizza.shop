@@ -105,7 +105,7 @@ export function StoreProfileDialog() {
       <DialogHeader>
         <DialogTitle>Store profile</DialogTitle>
         <DialogDescription>
-        Update your establishment's information visible to your customer
+          Update your establishment&#39;s information visible to your customer
         </DialogDescription>
       </DialogHeader>
 
@@ -113,7 +113,7 @@ export function StoreProfileDialog() {
         <div className="gap-4 space-y-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
-             Name
+              Name
             </Label>
             <Input id="name" className="col-span-3" {...register('name')} />
           </div>

@@ -53,13 +53,13 @@ export function RevenueChart() {
       <CardHeader className="flex-row items-center justify-between pb-8">
         <div className="space-y-1">
           <CardTitle className="text-base font-medium">
-            Receita no período
+            Revenue in the period
           </CardTitle>
-          <CardDescription>Receita diária no período</CardDescription>
+          <CardDescription>Daily revenue in the period</CardDescription>
         </div>
 
         <div className="flex items-center gap-3">
-          <Label>Período</Label>
+          <Label>Period</Label>
           <DateRangePicker date={dateRange} onDateChange={setDateRange} />
         </div>
       </CardHeader>
@@ -75,7 +75,7 @@ export function RevenueChart() {
                 tickFormatter={(value: number) =>
                   value.toLocaleString('pt-br', {
                     style: 'currency',
-                    currency: 'BRL',
+                    currency: 'USD',
                   })
                 }
               />
